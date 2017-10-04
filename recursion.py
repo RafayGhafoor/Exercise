@@ -5,6 +5,7 @@ chapters in Grokking's Algorithm.
 
 import sys
 
+
 # Returns the sum of the list. (Ex. 4.1)
 def sumIt(lst):
     if not lst:
@@ -21,17 +22,20 @@ def countIt(lst):
     
 
 # Finds maximum number in the list. (Ex. 4.3)
-# [1,2,3,1,3] | [2,3,1,3] | [3,1,3] | [1,3]
 def findMax(lst):
     if len(lst) == 2:
         return lst[1] if lst[0] < lst[1]  else lst[0]
+
     max_num = findMax(lst[1:])
+
     if lst[0] < max_num:
         return max_num
+
     else:
         return lst[0]
 
 
+# Find least number in the list. (Supplementary)
 def findLeast(lst):
     if len(lst) == 2:
         return lst[0] if lst[0] < lst[1] else lst[1]
