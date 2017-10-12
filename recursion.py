@@ -46,6 +46,5 @@ def findLeast(lst):
         return lst[0]
 
    
-                
 g = [int(i) for i in sys.argv[1].split(',')]
 print("The Sum is {0}, Max is {2}, length of the list {1} and Least value is {3}".format(sumIt(g[:]), countIt(g[:]), findMax(g[:]), findLeast(g[:])))
