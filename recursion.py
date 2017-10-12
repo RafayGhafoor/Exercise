@@ -1,6 +1,5 @@
 '''
-This module contains exercises for Recursion and Divide and Conquer
-chapters in Grokking's Algorithm.
+This module contains exercises for recursion chapter in Grokking's Algorithm.
 '''
 
 import sys
