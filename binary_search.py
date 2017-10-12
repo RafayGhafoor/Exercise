@@ -7,7 +7,7 @@ def binary_search(lst, search):
     high = len(lst) - 1
 
     for iteration, i in enumerate(lst, 1):   
-        mid = int((high + low) / 2)
+        mid = int((high + low) // 2)
         
         if lst[mid] == search:
             return iteration, lst[mid]
@@ -21,4 +21,6 @@ def binary_search(lst, search):
 
 
 num, s = binary_search([int(i) for i in sys.argv[1].split(',')], int(sys.argv[2]))
+
 print("Iteration Count: {}, Search_Item: {}".format(num, s))
+
