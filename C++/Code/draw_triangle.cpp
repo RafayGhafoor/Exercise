@@ -1,43 +1,28 @@
-C++ shell
-cpp.sh
-online C++ compiler
-about cpp.sh
+#include <iostream>
 
-
-RunGet URL
-optionscompilationexecution
-==============Drawing Right Triangle===============
-Enter size: 4
-****
- ***
-  **
-   *
-==============Drawing Left Triangle===============
-****
-***
-**
-*
- 
-Exit code: 0 (normal program termination)
-C++ Shell, 2014-2015C++ shell
-cpp.sh
-online C++ compiler
-about cpp.sh
+using namespace std;
 
-
-RunGet URL
-optionscompilationexecution
-==============Drawing Right Triangle===============
-Enter size: 4
-****
- ***
-  **
-   *
-==============Drawing Left Triangle===============
-****
-***
-**
-*
- 
-Exit code: 0 (normal program termination)
-C++ Shell, 2014-2015
+void spaces(int N) {
+    for (int i=1; i<=N; i++)
+        cout << " ";
+}
+
+void stars(int N) {
+    for (int i=1; i<=N; i++)
+        cout << "*";
+}
+
+int main() {
+    cout << "==============Drawing Right Triangle===============\n";
+    cout << "Enter size: "; int size;
+    cin >> size;
+    for (int i=size; i>=1; i--) {
+        spaces(size - i); stars(i); cout << endl;
+    }
+    
+    cout << "==============Drawing Left Triangle===============\n";
+    for (int i=size; i>=1; i--) {
+        stars(i); cout << endl;
+    }
+    
+}
