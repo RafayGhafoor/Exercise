@@ -4,17 +4,17 @@
 
 using namespace std;
 
-bool checkParanthesis(char input[]) {
-  bool left_paranthesis = false, right_paranthesis = false;
+bool checkBracket(char input[], string bracket) {
+  bool left_bracket = false, right_bracket = false;
 
   for (int i = 0; i < strlen(input); i++)
-    if (input[i] == '(')
-      left_paranthesis = true;
-    else if (input[i] == ')')
-      right_paranthesis = true;
+    if (input[i] == bracket[0])
+      left_bracket = true;
+    else if (input[i] == bracket[1])
+      right_bracket = true;
 
-  if (left_paranthesis && !right_paranthesis) {
-    cout << "Error: ')' expected\n";
+  if (left_bracket && !right_bracket) {
+    cout << "Error: " << bracket[1] << " expected\n";
     return 0;
   } else
     return 1;
@@ -23,22 +23,6 @@ bool checkParanthesis(char input[]) {
 bool checkSemiColon(char input[]) {
   if (input[strlen(input) - 1] != ';') {
     cout << "Error : ';' expected\n";
-    return 0;
-  } else
-    return 1;
-}
-
-bool checkBraces(char input[]) {
-  bool left_braces = false, right_braces = false;
-
-  for (int i = 0; i < strlen(input); i++)
-    if (input[i] == '{')
-      left_braces = true;
-    else if (input[i] == '}')
-      right_braces = true;
-
-  if (left_braces && !right_braces) {
-    cout << "Error: '}' expected\n";
     return 0;
   } else
     return 1;
@@ -74,9 +58,9 @@ int main() {
     cin.getline(input, 100);
     if (!checkDataType(input))
       continue;
-    else if (!checkBraces(input))
+    else if (!checkBracket(input, "{}"))
       continue;
-    else if (!checkParanthesis(input))
+    else if (!checkBracket(input, "()"))
       continue;
     else if (!checkSemiColon(input))
       continue;
