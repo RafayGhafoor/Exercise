@@ -49,13 +49,25 @@ void replaceAll(char sentence[], char find[], char sub[], int index) {
 }
 
 int main() {
-  char sub[10] = "as";
-  char sen[100] = "Rafay Ghafoas Awanas asTalha astkla";
-  char rep[10] = "or";
-  int fIndex = 0;
-  if (findSubstring(sen, sub, fIndex))
-    cout << "Yes\n" << fIndex << "\n";
+  char sen[100], find[10], rep[10];
+  cout << "********** [Find - Replace Utility] **********\n";
+  cout << "Please enter a sentence:\n>>> ";
+  cin.getline(sen, 100);
+  cout << "Please enter the characters you want to find:\n>>> ";
+  cin.getline(find, 100);
+  cout << "Please enter the characters you want to replace find with:\n>> ";
+  cin.getline(rep, 100);
 
-  replaceAll(sen, sub, rep, fIndex);
-  cout << sen << endl;
+  int fIndex = 0;
+
+  if (findSubstring(sen, find, fIndex)) {
+    cout << "[" << find << "]"
+         << " - Found!\n";
+
+    replaceAll(sen, find, rep, fIndex);
+
+    cout << "Altered Sentence is: " << sen << endl;
+  } else
+    cout << "[" << find << "]"
+         << " - Not Found!\n";
 }
