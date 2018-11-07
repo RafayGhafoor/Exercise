@@ -14,6 +14,7 @@ int main() {
   for (int i = maxIndex - 1; i >= 0; i--) {
     if (myArray[i] + myArray[maxIndex] <= check) {
       secondIndex = i;
+      break;
     }
   }
 
