@@ -49,14 +49,14 @@ void replaceAll(char sentence[], char find[], char sub[], int index) {
 }
 
 int main() {
-  char sen[100], find[10], rep[10];
+  char sen[300], find[300], rep[300];
   cout << "********** [Find - Replace Utility] **********\n\n";
   cout << "Please enter a sentence:\n>>> ";
-  cin.getline(sen, 100);
+  cin.getline(sen, 300);
   cout << "Please enter the characters you want to find:\n>>> ";
-  cin.getline(find, 100);
+  cin.getline(find, 300);
   cout << "Please enter the characters you want to replace find with:\n>>> ";
-  cin.getline(rep, 100);
+  cin.getline(rep, 300);
 
   int fIndex = 0;
 
