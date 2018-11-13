@@ -19,11 +19,13 @@ int main() {
     for (int j = 0; j < 3; j++) {
       if (j < 2 && arr[j][i] > arr[j + 1][i])
         swap(arr[j][i], arr[j + 1][i]);
+      if (j > 1 && arr[j - 1][i] > arr[j][i])
+        swap(arr[j - 1][i], arr[j][i]);
     }
 
   // Output Display
   for (int i = 0; i < 3; i++) {
-    cout << "Column " << i << endl;
+    cout << "[Output for Column " << i << "]\n";
     for (int j = 0; j < 3; j++)
       cout << arr[j][i] << endl;
   }
