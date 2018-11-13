@@ -15,19 +15,16 @@ int findMin(int arr[][3], int column, int &index) {
 }
 
 int main() {
-  // int arr[3][3];
-  // // Adding Elements in Array
-  // cout << "Enter Numbers (Entered Column Wise):\n\n";
-  // for (int i = 0; i < 3; i++) {
-  //   cout << "[Input for Column " << i << "]\n";
-  //   for (int j = 0; j < 3; j++) {
-  //     cout << ">>> ";
-  //     cin >> arr[j][i];
-  //   }
-  // }
-  int old_index = 0;
-  int index = 0;
-  int arr[3][3] = {{2, 1, 5}, {0, 9, 3}, {1, 3, 4}};
+  int arr[3][3];
+  // Adding Elements in Array
+  cout << "Enter Numbers (Entered Column Wise):\n\n";
+  for (int i = 0; i < 3; i++) {
+    cout << "[Input for Column " << i << "]\n";
+    for (int j = 0; j < 3; j++) {
+      cout << ">>> ";
+      cin >> arr[j][i];
+    }
+  }
 
   // Sorting of Columns
   for (int i = 0; i < 3; i++) {
