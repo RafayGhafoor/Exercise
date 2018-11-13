@@ -2,27 +2,42 @@
 
 using namespace std;
 
-int main() {
-  int arr[3][3];
-  // Adding Elements in Array
-  cout << "Enter Numbers (Entered Column Wise):\n\n";
-  for (int i = 0; i < 3; i++) {
-    cout << "[Input for Column " << i << "]\n";
+int findMin(int arr[][3], int column, int &index) {
+  int min = arr[0][column];
+  for (int i = column; i < 3; i++)
     for (int j = 0; j < 3; j++) {
-      cout << ">>> ";
-      cin >> arr[j][i];
+      if (min > arr[j][i]) {
+        min = arr[j][i];
+        index = j;
+      }
     }
-  }
+  return min;
+}
+
+int main() {
+  // int arr[3][3];
+  // // Adding Elements in Array
+  // cout << "Enter Numbers (Entered Column Wise):\n\n";
+  // for (int i = 0; i < 3; i++) {
+  //   cout << "[Input for Column " << i << "]\n";
+  //   for (int j = 0; j < 3; j++) {
+  //     cout << ">>> ";
+  //     cin >> arr[j][i];
+  //   }
+  // }
+  int old_index = 0;
+  int index = 0;
+  int arr[3][3] = {{2, 1, 5}, {0, 9, 3}, {1, 3, 4}};
 
   // Sorting of Columns
-  for (int i = 0; i < 3; i++)
-    for (int j = 0; j < 3; j++) {
-      if (j < 2 && arr[j][i] > arr[j + 1][i])
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 2; j++)
+      if (arr[j][i] < arr[j + 1][i])
         swap(arr[j][i], arr[j + 1][i]);
-      if (j > 1 && arr[j - 1][i] > arr[j][i])
-        swap(arr[j - 1][i], arr[j][i]);
-    }
 
+    if (arr[2][i] < arr[0][i])
+      swap(arr[2][i], arr[0][i]);
+  }
   // Output Display
   for (int i = 0; i < 3; i++) {
     cout << "[Output for Column " << i << "]\n";
