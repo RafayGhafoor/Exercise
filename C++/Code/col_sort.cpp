@@ -2,17 +2,20 @@
 
 using namespace std;
 
-int findMin(int arr[][3], int column, int &index) {
+int findMin(int arr[][3], int column, int element) {
+  int index = 0;
   int min = arr[0][column];
-  for (int i = column; i < 3; i++)
-    for (int j = 0; j < 3; j++) {
-      if (min > arr[j][i]) {
-        min = arr[j][i];
+  
+  for (int j = element; j < 3; j++) {
+      if (min >= arr[j][column]) {
+          cout << arr[j][column];
+        min = arr[j][column];
         index = j;
       }
     }
-  return min;
+  return index;
 }
+
 
 int main() {
   int arr[3][3];
@@ -26,15 +29,13 @@ int main() {
     }
   }
 
-  // Sorting of Columns
+//   Sorting of Columns
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 2; j++)
-      if (arr[j][i] < arr[j + 1][i])
-        swap(arr[j][i], arr[j + 1][i]);
-
-    if (arr[2][i] < arr[0][i])
-      swap(arr[2][i], arr[0][i]);
+        if (findMin(arr, i, j) != 0)
+          swap(arr[j][i], arr[findMin(arr, i, j)][i]);
   }
+
   // Output Display
   for (int i = 0; i < 3; i++) {
     cout << "[Output for Column " << i << "]\n";
