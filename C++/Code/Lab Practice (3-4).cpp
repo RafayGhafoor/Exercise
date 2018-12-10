@@ -25,12 +25,15 @@ void getInput(int **matrix, int row, int column)
         }
 }
 
-void addMatrix(int **matrix, int **matrix1, int row, int column)
+void addMatrix(int **matrix, int **matrix1, int **result, int row, int column)
 {
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < column; j++)
+        {
             cout << matrix[i][j] + matrix1[i][j] << "    ";
+            result[i][j] = matrix[i][j] + matrix1[i][j];
+        }
         cout << endl;
     }
 }
@@ -47,9 +50,11 @@ void TestMatrixAddition()
     {
         int **matrixA = new int *[row];
         int **matrixB = new int *[row];
+        int **matrixC = new int *[row];
 
         initMatrix(matrixA, row, column);
         initMatrix(matrixB, row, column);
+        initMatrix(matrixC, row, column);
 
         // endl and \n are equivalent
         cout << "Enter Elements for Matrix A\n";
@@ -57,7 +62,7 @@ void TestMatrixAddition()
         cout << "\nEnter Elements for Matrix B\n";
         getInput(matrixB, row, column);
 
-        addMatrix(matrixA, matrixB, row, column);
+        addMatrix(matrixA, matrixB, matrixC, row, column);
     }
 
     else
