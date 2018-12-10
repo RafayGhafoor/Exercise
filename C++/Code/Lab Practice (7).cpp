@@ -33,5 +33,8 @@ int main() {
          << (votes[i] * 100.0) / total_votes << endl;
   }
 
+  // Since Names and Votes have equivalent length, we can get the maximum number's
+  // index from votes and pass it's index to names array to get the person with
+  // most votes
   cout << "The Winner of the Election is: " << names[getMaxIndex(votes, 5)];
 }
