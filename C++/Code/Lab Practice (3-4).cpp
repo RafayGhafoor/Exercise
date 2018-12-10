@@ -8,7 +8,7 @@ void initMatrix(int **matrix, int rows, int columns)
     // Initialize the given matrix entries to 0
     for (int i = 0; i < rows; i++)
     {
-        matrix[i] = new int[rows];
+        matrix[i] = new int[columns];
 
         for (int j = 0; j < columns; j++)
             matrix[i][j] = 0;
@@ -43,21 +43,24 @@ void TestMatrixAddition()
     cout << "Enter Number of Columns: ";
     cin >> column;
 
-    int **matrixA = new int *[row];
-    int **matrixB = new int *[row];
+    if (row != column)
+    {
+        int **matrixA = new int *[row];
+        int **matrixB = new int *[row];
 
-    initMatrix(matrixA, row, column);
-    initMatrix(matrixB, row, column);
+        initMatrix(matrixA, row, column);
+        initMatrix(matrixB, row, column);
 
-    // endl and \n are equivalent
-    cout << "Enter Elements for Matrix A\n";
-    getInput(matrixA, row, column);
-    cout << "\nEnter Elements for Matrix B\n";
-    getInput(matrixB, row, column);
+        // endl and \n are equivalent
+        cout << "Enter Elements for Matrix A\n";
+        getInput(matrixA, row, column);
+        cout << "\nEnter Elements for Matrix B\n";
+        getInput(matrixB, row, column);
 
-    addMatrix(matrixA, matrixB, row, column);
+        addMatrix(matrixA, matrixB, row, column);
+    }
+
+    else
+        cout << "Matrix don't have same order (row != column)\nCannot be Added!";
 }
-int main()
-{
-    TestMatrixAddition();
-}
+int main() { TestMatrixAddition(); }
