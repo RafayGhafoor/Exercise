@@ -43,7 +43,7 @@ void TestMatrixAddition()
     cout << "Enter Number of Columns: ";
     cin >> column;
 
-    if (row != column)
+    if (row == column)
     {
         int **matrixA = new int *[row];
         int **matrixB = new int *[row];
