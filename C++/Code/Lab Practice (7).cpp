@@ -2,12 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void Spaces(int count)
-{
-    for (int i = 0; i <= count; i++)
-        cout << " ";
-}
-
 int main()
 {
     char names[5][30];
