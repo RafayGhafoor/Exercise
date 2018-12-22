@@ -16,10 +16,10 @@ bool findSubstring(char sentence[], char find[], int &index) {
 
       match = true;
 
-      for (int i = 0, enumeration = index; i <= find_len && match;
-           i++, enumeration++) {
+      for (int i = 0; i <= find_len && match;
+           i++, index++) {
 
-        if (sentence[enumeration] != find[i])
+        if (sentence[index] != find[i])
           match = false;
       }
     }
