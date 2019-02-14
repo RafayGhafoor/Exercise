@@ -27,7 +27,7 @@ void addSong(Song &s, Node *&plhead, Node *&pltail, int &count)
     if (count == 0)
     {
         plhead = pltail = new Node;
-        plhead->next = 0;
+        plhead->next = nullptr;
         plhead->s = s;
         count++;
     }
