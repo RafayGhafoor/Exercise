@@ -81,8 +81,8 @@ public:
   }
 
   void assign(const Vector &obj) {
-    delete[] vec;
-    vec = nullptr;
+    if (vec)
+      delete[] vec;
     vec = new int[obj.cap];
     cap = obj.cap;
     size = obj.size;
@@ -96,16 +96,20 @@ private:
 };
 
 int main() {
-  Vector v1, v2(50); // Empty dynamic array, Space allocated for 50 members
-  for (int i = 0; i < 100; i++)
-    v2.push_back(i);
+  //   Vector v1, v2(50); // Empty dynamic array, Space allocated for 50 members
+  //   for (int i = 0; i < 100; i++)
+  //     v2.push_back(i);
 
-  v2.print();
+  //   v2.print();
+
   // Default Copy Constructor / Shallow Copying is called which does member-wise
   // copy
-  Vector v3 = v2; // Copy Constructor i.e., v3(v2), Memberwise Copy
+  //   Vector v3 = v2; // Copy Constructor i.e., v3(v2), Memberwise Copy
 
   //   v3 = v2; Assignment
-  // v1.assign(v2);
+  //   v1.assign(v2);
+
+  //   v1.print();
+
   return 0;
 }
