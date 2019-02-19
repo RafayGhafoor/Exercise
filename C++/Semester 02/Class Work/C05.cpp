@@ -33,9 +33,14 @@ class Vector
     int *vec; // Dynamically allocated array
     int size, cap;
 
-    void push_back(int num)
+    void push_back(int input)
     {
-        if (size == cap)
+        if (!cap)
+        {
+            vec = new int[++cap];
+        }
+
+        else if (size == cap)
         {
             // Double the capacity
             int *ptr = new int[cap * 2];
@@ -50,7 +55,7 @@ class Vector
             cap *= 2;
         }
 
-        vec[size++] = num;
+        vec[size++] = input;
     }
 };
 
