@@ -3,29 +3,35 @@
 
 using namespace std;
 
-class Vector {
+class Vector
+{
 public:
   // Default Constructor
-  Vector() {
+  Vector()
+  {
     vec = nullptr;
     size = cap = 0;
   }
 
   // Parametric Constructor
-  Vector(int capacity) {
+  Vector(int capacity)
+  {
     vec = new int[capacity];
     cap = capacity, size = 0;
   }
 
-  ~Vector() {
-    if (vec) {
+  ~Vector()
+  {
+    if (vec)
+    {
       delete[] vec;
       vec = nullptr;
     }
   }
 
   // Copy Constructor | Deep Copy
-  Vector(const Vector &obj) {
+  Vector(const Vector &obj)
+  {
     vec = new int[obj.cap];
 
     for (int i = 0; i < obj.size; i++)
@@ -35,11 +41,13 @@ public:
     cap = obj.cap;
   }
 
-  void push_back(int input) {
+  void push_back(int input)
+  {
     if (!cap)
       vec = new int[++cap];
 
-    else if (size == cap) {
+    else if (size == cap)
+    {
       // Double the capacity
       int *temp = new int[cap * 2];
 
@@ -55,10 +63,12 @@ public:
     vec[size++] = input;
   }
 
-  void pop_back() {
+  void pop_back()
+  {
     // Removes the last thing
     // If size has fallen half the capacity, it shrinks the array
-    if (size == cap / 2) {
+    if (size == cap / 2)
+    {
       int *temp = new int[cap / 2];
 
       for (int i = 0; i < cap; i++)
@@ -74,13 +84,16 @@ public:
       size--;
   }
 
-  void print() {
-    for (int i = 0; i < size; i++) {
+  void print()
+  {
+    for (int i = 0; i < size; i++)
+    {
       cout << vec[i] << '\t';
     }
   }
 
-  void assign(const Vector &obj) {
+  void assign(const Vector &obj)
+  {
     if (vec)
       delete[] vec;
     vec = new int[obj.cap];
@@ -95,7 +108,8 @@ private:
   int size, cap;
 };
 
-int main() {
+int main()
+{
   //   Vector v1, v2(50); // Empty dynamic array, Space allocated for 50 members
   //   for (int i = 0; i < 100; i++)
   //     v2.push_back(i);
