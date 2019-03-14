@@ -10,7 +10,7 @@ private:
 
 public:
   nDVector() {
-    dims = 0;
+    dims = nullptr;
     n = 0;
   }
 
@@ -44,6 +44,21 @@ public:
     return (*this);
   }
 
+  const nDVector &operator++() // Pre-Increment
+  {
+    for (int i = 0; i < n; i++)
+      dims[i]++;
+    return *this;
+  }
+
+  const nDVector operator++(int dummy) // Post-Increment
+  {
+    nDVector temp = *this;
+    for (int i = 0; i < n; i++)
+      dims[i]++;
+    return temp;
+  }
+
   nDVector operator-() {
     nDVector temp = (*this);
     for (int i = 0; i < n; i++)
@@ -60,21 +75,6 @@ nDVector operator+(float nd, nDVector &obj) {
   nDVector temp(obj.getN());
   for (int i = 0; i < obj.getN(); i++)
     temp[i] = obj[i] + nd;
-  return temp;
-}
-
-const nDVector &operator++() // Pre-Increment
-{
-  for (int i = 0; i < n; i++)
-    dims[i]++;
-  return *this;
-}
-
-const nDVector operator++(int dummy) // Post-Increment
-{
-  nDVector temp = *this;
-  for (int i = 0; i < n; i++)
-    dims[i]++;
   return temp;
 }
 
@@ -96,13 +96,17 @@ nDVector inputVector(int mango) {
 }
 
 int main() {
-  nDVector v1 = inputVector(3);
-  nDVector v2 = inputVector(3);
-  cout << "v1 = " << v1 << endl << "v2 = " << v2 << endl;
-  v2 = 5.1 + v2;
-  cout << "after adding 5.1: " << v2;
-  nDVector v3 = -v1;
-  cout << v3;
+  // nDVector v1 = inputVector(3);
+  // nDVector v2 = inputVector(3);
+  // cout << "v1 = " << v1 << endl
+  //      << "v2 = " << v2 << endl;
+  // v2 = 5.1 + v2;
+  // cout << "after adding 5.1: " << v2;
+  // nDVector v3 = -v1;
+  // cout << v3;
+
+  // Allocation on heap
+  nDVector *vptr = new nDVector[3]{3};
 
   // system("pause");
 }
