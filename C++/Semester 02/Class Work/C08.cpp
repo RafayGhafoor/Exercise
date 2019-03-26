@@ -10,27 +10,31 @@
 
 using namespace std;
 
-class BitVector {
+class BitVector
+{
   byte *bits;
   const int nbits; // number of bits
 
 public:
   BitVector(int bcount) : nbits(bcount) { bits = new byte[BYTECOUNT(bcount)]; }
 
-  void set() {
+  void set()
+  {
     byte mask = 0x80;
-    mask = mask << (b % 8);
-    bits[BYTENUM(b)] |= mask;
+    mask = mask << (nbits % 8);
+    bits[BYTENUM(nbits)] |= mask;
   }
 
-  bool test() {
+  bool test()
+  {
     byte mask = 0x80;
-    mask = mask >> (b % 8);
-    mask = mask & bits[BYTENUM(b)];
+    mask = mask >> (nbits % 8);
+    mask = mask & bits[BYTENUM(nbits)];
     return mask != 0;
   }
 
-  void reset(int b) {
+  void reset(int b)
+  {
     byte mask = 0x80;
     mask = ~(mask >> (b % 8));
     bits[BYTENUM(b)] &= mask;
