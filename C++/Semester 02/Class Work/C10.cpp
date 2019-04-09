@@ -98,7 +98,10 @@ class Reference : public Book
 //     Library()
 //     {
 //     }
+
+//     void addBook(...., type)
 // };
+
 int main()
 {
     string a = "Hello";
